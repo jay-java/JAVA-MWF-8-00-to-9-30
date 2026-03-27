@@ -1,0 +1,15 @@
+package core;
+
+public class P003_TypeCasting {
+	public static void main(String[] args) {
+		// 1.implicit -> by compiler
+		int i = 12;//4
+		System.out.println(i);
+		double d = i;//8
+		System.out.println(d);
+		// 2.explicit -> by user
+		double d1 = 345.45;//8
+		int a = d1;//4
+		
+	}
+}

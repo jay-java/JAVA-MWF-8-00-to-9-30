@@ -1,0 +1,11 @@
+package core;
+
+public class P005_Conditions {
+	public static void main(String[] args) {
+		//if else
+		
+		//nested if
+		//else if ladder
+		//switch case
+	}
+}
