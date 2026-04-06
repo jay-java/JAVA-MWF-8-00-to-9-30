@@ -43,7 +43,12 @@ public class P006_Loops {
 			System.out.println(b);
 			b--;
 		} while (b >= 1);
-		
+
 		// 4.for each
+		int ar[] = { 1, 2, 3, 4, 5 };
+		for (int i : ar) {
+			System.out.println(i);
+		}
+
 	}
 }

@@ -3,13 +3,18 @@ package core;
 class Data {
 	double l, b;
 
-//	Data() {
-//		System.out.println("default constructor");
-//	}
+	Data() {
+		System.out.println("default constructor");
+	}
+
 	Data(double l, double b) {
 		this.l = l;
 		this.b = b;
 		System.out.println("in cons -> l = " + l + " b = " + b);
+	}
+
+	Data(Data d) {
+
 	}
 
 	public void areaOfRectangle() {
@@ -27,6 +32,25 @@ class Data {
 	public void showData() {
 		System.out.println("show data fun");
 	}
+
+}
+
+class CopyData {
+	double l, b;
+
+	CopyData() {
+		System.out.println("def cons");
+	}
+
+	CopyData(Data d) {
+		this.l = d.l;
+		this.b = d.b;
+	}
+
+	public void areaOfRec() {
+		System.out.println("area of rectangle : " + (l * b));
+	}
+
 }
 
 public class P012_Constructor {
@@ -38,5 +62,8 @@ public class P012_Constructor {
 
 		Data d3 = new Data(23.34, 54.84);
 		d3.areaOfRectangle();
+
+		CopyData c = new CopyData(d3);
+		c.areaOfRec();
 	}
 }
