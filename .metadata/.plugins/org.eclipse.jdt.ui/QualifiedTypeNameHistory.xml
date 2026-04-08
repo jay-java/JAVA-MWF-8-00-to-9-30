@@ -5,4 +5,9 @@
     <fullyQualifiedTypeName name="core.Student"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="core.Data"/>
+    <fullyQualifiedTypeName name="core.CopyData"/>
+    <fullyQualifiedTypeName name="core.D"/>
+    <fullyQualifiedTypeName name="core.Overload"/>
+    <fullyQualifiedTypeName name="core.Child"/>
+    <fullyQualifiedTypeName name="core.P014_Polymorphism"/>
 </qualifiedTypeNameHistroy>
