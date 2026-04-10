@@ -14,7 +14,13 @@ abstract class RBI {
 	}
 }
 
-class SBI extends RBI {
+interface SBIFeatures {
+	public void healthPolicy();
+
+	public void investment();
+}
+
+class SBI extends RBI implements SBIFeatures {
 
 	@Override
 	public void SA() {
@@ -26,6 +32,18 @@ class SBI extends RBI {
 	public void HL() {
 		// TODO Auto-generated method stub
 		System.out.println("SBI HL 7%");
+	}
+
+	@Override
+	public void healthPolicy() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void investment() {
+		// TODO Auto-generated method stub
+
 	}
 
 }
@@ -58,5 +76,6 @@ public class P015_Abstraction {
 		j.HL();
 		j.Policy();
 		JAVA.repoRate();
+
 	}
 }
