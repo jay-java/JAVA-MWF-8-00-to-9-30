@@ -17,7 +17,7 @@ interface interface2 extends interface1 {
 }
 
 interface interface3 {
-	public void interface3Method();
+	void interface3Method();
 
 	public static void staticInterface3() {
 		System.out.println("static interface 3");
