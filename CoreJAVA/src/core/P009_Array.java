@@ -4,54 +4,83 @@ import java.util.Scanner;
 
 public class P009_Array {
 	public static void main(String[] args) {
-		int a[] = { 1, 2, 3, 4, 5 };
-		for (int index = 0; index < a.length; index++) {
-			System.out.println(a[index]);
-		}
-
+//		int a[] = { 1, 2, 3, 4, 5 };
+//		for (int index = 0; index < a.length; index++) {
+//			System.out.println(a[index]);
+//		}
+//
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter size of array = ");
-		int size = sc.nextInt();
-		int ar[] = new int[size];
+//		System.out.println("enter size of array = ");
+//		int size = sc.nextInt();
+//		int ar[] = new int[size];
+//
+//		for (int index = 0; index < ar.length; index++) {
+//			System.out.print("enter element ar ar[" + index + "] : ");
+//			ar[index] = sc.nextInt();
+//		}
+//		for (int index = 0; index < ar.length; index++) {
+//			System.out.print(+ar[index]);
+//		}
+//		System.out.println();
+//		int sum = 0;
+//		for (int index = 0; index < ar.length; index++) {
+//			sum = sum + ar[index];
+//		}
+//
+//		System.out.println("sum = " + sum);
+//
+//		System.out.println("enter number to search in array : ");
+//		int num = sc.nextInt();
+//
+//		int counter = 0;
+//		for (int index = 0; index < ar.length; index++) {
+//			if (num == ar[index]) {
+//				counter++;
+//			}
+//		}
+//
+//		if (counter > 0) {
+//			System.out.println("yes exist");
+//		} else {
+//			System.out.println("no exist");
+//		}
+//
+//		int max = ar[0];
+//		for (int index = 1; index < ar.length; index++) {
+//			if (max < ar[index]) {
+//				max = ar[index];
+//			}
+//		}
+//		System.out.println("max = " + max);
 
-		for (int index = 0; index < ar.length; index++) {
-			System.out.print("enter element ar ar[" + index + "] : ");
-			ar[index] = sc.nextInt();
+		System.out.println("enter row = ");
+		int row = sc.nextInt();
+		System.out.println("enter col = ");
+		int col = sc.nextInt();
+
+		int arr1[][] = new int[row][col];
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				System.out.print("enter ele ar[" + i + "][" + j + "] : ");
+				arr1[i][j] = sc.nextInt();
+			}
 		}
-		for (int index = 0; index < ar.length; index++) {
-			System.out.print(+ar[index]);
-		}
-		System.out.println();
-		int sum = 0;
-		for (int index = 0; index < ar.length; index++) {
-			sum = sum + ar[index];
-		}
-
-		System.out.println("sum = " + sum);
-
-		System.out.println("enter number to search in array : ");
-		int num = sc.nextInt();
-
-		int counter = 0;
-		for (int index = 0; index < ar.length; index++) {
-			if (num == ar[index]) {
-				counter++;
+		int arr2[][] = new int[row][col];
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				System.out.print("enter ele ar[" + i + "][" + j + "] : ");
+				arr2[i][j] = sc.nextInt();
 			}
 		}
 
-		if (counter > 0) {
-			System.out.println("yes exist");
-		} else {
-			System.out.println("no exist");
-		}
-
-		int max = ar[0];
-		for (int index = 1; index < ar.length; index++) {
-			if (max < ar[index]) {
-				max = ar[index];
+		int arr3[][] = new int[row][col];
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				arr3[i][j] = arr1[i][j] + arr2[i][j];
+				System.out.print(arr3[i][j] + " ");
 			}
+			System.out.println();
 		}
-		System.out.println("max = " + max);
 
 	}
 }

@@ -14,7 +14,7 @@ public class P010_String {
 		System.out.println(s1.toUpperCase());
 		String s2 = "java";
 		System.out.println(s1.concat(s2));
-		System.out.println(s1);
+		System.out.println("s1 = " + s1);
 		System.out.println(s1.compareTo(s2));
 		System.out.println(s1.compareToIgnoreCase(s2));
 		System.out.println(s1.equals(s2));
@@ -28,6 +28,12 @@ public class P010_String {
 		String s5 = " ";
 		System.out.println(s5.isBlank());
 		System.out.println(s5.isEmpty());
+
+		StringBuilder newString = new StringBuilder("hello");
+		System.out.println(newString);
+
+		newString.append(" java technology");
+		System.out.println(newString);
 	}
 
 }
