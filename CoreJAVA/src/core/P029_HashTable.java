@@ -1,14 +1,14 @@
 package core;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
-public class P024_Map {
+public class P029_HashTable {
 	public static void main(String[] args) {
-		Map map = new HashMap();
+		Map map = new Hashtable();
 		map.put(1, "java"); // entry
 		map.put(34, "php");
 		map.put("python", 4356.456);
@@ -16,8 +16,8 @@ public class P024_Map {
 		map.put("hello", 3245);
 		map.put(12, "dart");
 		map.put(1, "kotlin");
-		map.put(null, null);
-		map.put(342, null);
+//		map.put(null, null);
+//		map.put(342, null);
 		System.out.println(map);
 		Set set = map.entrySet();
 		Iterator itr = set.iterator();
