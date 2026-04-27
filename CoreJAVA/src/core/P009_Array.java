@@ -8,7 +8,7 @@ public class P009_Array {
 //		for (int index = 0; index < a.length; index++) {
 //			System.out.println(a[index]);
 //		}
-//
+		
 		Scanner sc = new Scanner(System.in);
 //		System.out.println("enter size of array = ");
 //		int size = sc.nextInt();
