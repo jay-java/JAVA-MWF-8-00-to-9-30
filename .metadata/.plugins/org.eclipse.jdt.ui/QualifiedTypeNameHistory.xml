@@ -52,4 +52,8 @@
     <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="core.NameComparator"/>
+    <fullyQualifiedTypeName name="core.ByThreadClass"/>
+    <fullyQualifiedTypeName name="core.ByRunnableInterface"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>
