@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="core.Student"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="core.Data"/>
-    <fullyQualifiedTypeName name="core.CopyData"/>
-    <fullyQualifiedTypeName name="core.D"/>
-    <fullyQualifiedTypeName name="core.Overload"/>
-    <fullyQualifiedTypeName name="core.Child"/>
     <fullyQualifiedTypeName name="core.P014_Polymorphism"/>
     <fullyQualifiedTypeName name="core.SBI"/>
     <fullyQualifiedTypeName name="core.JAVA"/>
@@ -55,5 +47,17 @@
     <fullyQualifiedTypeName name="core.ByThreadClass"/>
     <fullyQualifiedTypeName name="core.ByRunnableInterface"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="core.MyThread"/>
+    <fullyQualifiedTypeName name="core.Counter"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.nio.charset.CoderMalfunctionError"/>
+    <fullyQualifiedTypeName name="core.Company"/>
+    <fullyQualifiedTypeName name="core.Developer"/>
+    <fullyQualifiedTypeName name="core.Tester"/>
+    <fullyQualifiedTypeName name="user.User"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="dbConnection.DatabaseConnectivity"/>
+    <fullyQualifiedTypeName name="user.UsersMethods"/>
+    <fullyQualifiedTypeName name="model.User"/>
 </qualifiedTypeNameHistroy>
