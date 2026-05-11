@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
 import model.User;
 
 /**
@@ -46,6 +47,15 @@ public class UserController extends HttpServlet {
 			u.setEmail(request.getParameter("email"));
 			u.setPassword(request.getParameter("password"));
 			System.out.println(u);
+			String email = request.getParameter("email");
+			boolean flag = UserDao.checkEmail(email);
+			if (flag == true) {
+				request.setAttribute("msg", "Account registered with this email ID!");
+				request.getRequestDispatcher("register.jsp").forward(request, response);
+			} else {
+				UserDao.createUser(u);
+				response.sendRedirect("login.jsp");
+			}
 		}
 		if (action.equalsIgnoreCase("login")) {
 
