@@ -1,8 +1,10 @@
 package user_methods;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,18 @@ import dbConnection.DatabaseConnectivity;
 import model.User;
 
 public class UsersMethods {
+	public static void collableSta() {
+		Connection conn = DatabaseConnectivity.dbConnect();
+		try {
+			CallableStatement cs = conn.prepareCall("call addUser(?,?,?)");
+			cs.setInt(1, 123);
+
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void createUser(User u) {
 		try {
 			Connection conn = DatabaseConnectivity.dbConnect();
@@ -24,7 +38,8 @@ public class UsersMethods {
 			pst.executeUpdate();
 			System.out.println("data inserted successfully");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
 		}
 	}
 

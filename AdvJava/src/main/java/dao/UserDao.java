@@ -41,4 +41,28 @@ public class UserDao {
 		}
 		return flag;
 	}
+
+	public static User userLogin(User u) {
+		User u1 = null;
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "select * from users where email=? and password =?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, u.getEmail());
+			pst.setString(2, u.getPassword());
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				u1 = new User();
+				u1.setId(rs.getInt("id"));
+				u1.setName(rs.getString("name"));
+				u1.setContact(rs.getLong("contact"));
+				u1.setAddress(rs.getString("address"));
+				u1.setEmail(rs.getString("email"));
+				u1.setPassword(rs.getString("password"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return u1;
+	}
 }
