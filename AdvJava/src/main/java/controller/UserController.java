@@ -79,6 +79,24 @@ public class UserController extends HttpServlet {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		}
+		if (action.equalsIgnoreCase("edit")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println(id);
+			User u = UserDao.getUserById(id);
+			request.setAttribute("user", u);
+			request.getRequestDispatcher("update.jsp").forward(request, response);
+		}
+		if (action.equalsIgnoreCase("update")) {
+			User u = new User();
+			u.setId(Integer.parseInt(request.getParameter("id")));
+			u.setName(request.getParameter("name"));
+			u.setContact(Long.parseLong(request.getParameter("contact")));
+			u.setAddress(request.getParameter("address"));
+			u.setEmail(request.getParameter("email"));
+			u.setPassword(request.getParameter("password"));
+			UserDao.updateUser(u);
+			response.sendRedirect("home.jsp");
+		}
 	}
 
 }
