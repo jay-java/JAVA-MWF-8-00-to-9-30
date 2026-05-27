@@ -131,4 +131,17 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
+
+	public static void deleteUserById(int id) {
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "delete from users where id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			pst.executeUpdate();
+			System.out.println("data deleted");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

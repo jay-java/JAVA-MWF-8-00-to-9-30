@@ -26,7 +26,6 @@ INDEX VERSION 1.134+C:\Users\Admin\JAVA MWF 8-00\.metadata\.plugins\org.eclipse.
 2543161149.index
 2045927209.index
 599058280.index
-2086930076.index
 532125220.index
 3056766771.index
 1865797976.index

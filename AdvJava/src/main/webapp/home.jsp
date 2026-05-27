@@ -28,6 +28,12 @@ tr:nth-child(even) {
 </head>
 <body>
 	<%
+	response.setHeader("Cache-Control", "no-cache");
+	response.setHeader("Cache-Control", "no-store");
+	response.setHeader("Pragma", "no-cache");
+	response.setDateHeader("Expires", 0);
+	%>
+	<%
 	User u = null;
 	if (session.getAttribute("user") != null) {
 		u = (User) session.getAttribute("user");
@@ -68,13 +74,16 @@ tr:nth-child(even) {
 						type="submit" name="action" value="edit">
 				</form>
 			</td>
-			<td><a href="delete.jsp">Delete</a></td>
+			<%-- <td><a href="delete.jsp?id=<%=u1.getId()%>">Delete</a></td> --%>
+			<td><a href="userregister?action=delete&id=<%=u1.getId()%>">Delete</a></td>
 		</tr>
 		<%
 		}
 		%>
 	</table>
 
-
+	<h1 style="text-align: center;">
+		<a href="logout.jsp">Logout</a>
+	</h1>
 </body>
 </html>

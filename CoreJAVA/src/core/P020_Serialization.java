@@ -51,7 +51,7 @@ public class P020_Serialization {
 //		oos.close();
 //		System.out.println("done");
 
-		// de-se
+		// de-serialization
 //		FileInputStream fis = new FileInputStream("users.txt");
 //		ObjectInputStream ois = new ObjectInputStream(fis);
 //		Users u = (Users) ois.readObject();

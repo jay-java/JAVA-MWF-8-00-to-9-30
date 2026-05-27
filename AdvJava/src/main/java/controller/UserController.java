@@ -31,8 +31,11 @@ public class UserController extends HttpServlet {
 			u.setPassword(request.getParameter("password"));
 			System.out.println(u);
 		}
-		if (action.equalsIgnoreCase("login")) {
-
+		if (action.equalsIgnoreCase("delete")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println("delete event called : " + id);
+			UserDao.deleteUserById(id);
+			response.sendRedirect("home.jsp");
 		}
 	}
 
