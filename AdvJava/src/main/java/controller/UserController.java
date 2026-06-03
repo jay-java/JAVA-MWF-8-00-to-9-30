@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -75,6 +77,8 @@ public class UserController extends HttpServlet {
 				} else {
 					HttpSession session = request.getSession();
 					session.setAttribute("user", u1);
+					// 15 mins
+					session.setMaxInactiveInterval(15 * 60);
 					request.getRequestDispatcher("home.jsp").forward(request, response);
 				}
 			} else {
