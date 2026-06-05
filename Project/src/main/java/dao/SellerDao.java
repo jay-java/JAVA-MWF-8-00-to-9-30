@@ -65,6 +65,7 @@ public class SellerDao {
 		}
 		return u1;
 	}
+
 	public static void updateSeller(Seller u) {
 		try {
 			Connection conn = DatabaseConnection.createConnection();
@@ -77,6 +78,38 @@ public class SellerDao {
 			pst.setInt(5, u.getId());
 			pst.executeUpdate();
 			System.out.println("data updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static boolean checkOldPassword(int id, String password) {
+		boolean flag = false;
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "select * from seller where id=? and password=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			pst.setString(2, password);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+	public static void changePassword(int id, String np) {
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "update seller set password=? where id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, np);
+			pst.setInt(2, id);
+			pst.executeUpdate();
+			System.out.println("pass updated");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

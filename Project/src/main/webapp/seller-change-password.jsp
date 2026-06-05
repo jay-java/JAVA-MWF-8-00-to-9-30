@@ -17,6 +17,18 @@
 
 					<div class="col-md-8 col-lg-8 pb-4">
 
+						<%
+						String msg = (String) request.getAttribute("msg");
+						if (msg != null) {
+						%>
+						<h2 class="mb-4 section-title">
+							<%
+							out.print(msg);
+							%>
+						</h2>
+						<%
+						}
+						%>
 						<form action="seller" method="post">
 							<input type="hidden" name="id" value="<%=s.getId()%>"
 								class="form-control" id="email">
@@ -34,8 +46,8 @@
 									id="email">
 							</div>
 							<br>
-							<button type="submit" name="action" value="update"
-								class="btn btn-primary-hover-outline">Update</button>
+							<button type="submit" name="action" value=cp
+								class="btn btn-primary-hover-outline">Change Password</button>
 						</form>
 
 					</div>

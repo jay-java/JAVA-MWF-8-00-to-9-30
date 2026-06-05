@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Random;
+
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.SellerDao;
+import email_services.EmailServices;
 import models.Seller;
 
 /**
@@ -90,6 +94,46 @@ public class SellerController extends HttpServlet {
 			session.setAttribute("seller", s);
 			request.getRequestDispatcher("seller-home.jsp").forward(request, response);
 		}
+
+		else if (action.equalsIgnoreCase("cp")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			String op = request.getParameter("op");
+			String np = request.getParameter("np");
+			String cnp = request.getParameter("cnp");
+			boolean flag = SellerDao.checkOldPassword(id, op);
+			System.out.println(flag);
+			if (flag == true) {
+				if (np.equals(cnp)) {
+					SellerDao.changePassword(id, np);
+					response.sendRedirect("seller-home.jsp");
+				} else {
+					request.setAttribute("msg", "Np and CNP Password not matched!");
+					request.getRequestDispatcher("seller-change-password.jsp").forward(request, response);
+				}
+			} else {
+				request.setAttribute("msg", "Old Password is incorrect");
+				request.getRequestDispatcher("seller-change-password.jsp").forward(request, response);
+			}
+		}
+
+		else if (action.equalsIgnoreCase("sendotp")) {
+			String email = request.getParameter("email");
+			boolean flag = SellerDao.checkEmail(email);
+			if (flag == true) {
+				Random r = new Random();
+				int otp = r.nextInt(999999);
+				System.out.println(otp);
+				try {
+					EmailServices.sendOTP(email, otp);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
+			} else {
+				request.setAttribute("msg", "Account not found!");
+				request.getRequestDispatcher("seller-forgot-password.jsp").forward(request, response);
+			}
+		}
+
 	}
 
 }

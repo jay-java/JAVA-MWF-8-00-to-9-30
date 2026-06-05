@@ -24,6 +24,12 @@
 </head>
 <body>
 	<%
+	response.setHeader("Cache-Control", "no-cache");
+	response.setHeader("Cache-Control", "no-store");
+	response.setHeader("Pragma", "no-cache");
+	response.setDateHeader("Expires", 0);
+	%>
+	<%
 	Seller s = null;
 	if (session.getAttribute("seller") != null) {
 		s = (Seller) session.getAttribute("seller");
@@ -35,7 +41,7 @@
 		arial-label="Furni navigation bar">
 
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+			<a class="navbar-brand" href="seller-home.jsp">Furni<span>.</span></a>
 
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
@@ -61,10 +67,9 @@
 						Welcome,
 						<%=s.getName()%></button>
 					<div class="dropdown-content">
-						<a href="seller-profile.jsp">Profile</a> 
-						<a href="seller-change-password.jsp">Change Password</a> 
-						<a
-							href="#">Logout</a>
+						<a href="seller-profile.jsp">Profile</a> <a
+							href="seller-change-password.jsp">Change Password</a> <a
+							href="seller-logout.jsp">Logout</a>
 					</div>
 				</div>
 			</div>
