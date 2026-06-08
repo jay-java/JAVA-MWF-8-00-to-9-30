@@ -33,7 +33,7 @@ public class EmailServices {
 		msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
 		msg.setSubject("Your OTP Code");
 		msg.setText("Your OTP is: " + otp);
-
+		System.out.println(msg);
 		Transport.send(msg);
 	}
 }

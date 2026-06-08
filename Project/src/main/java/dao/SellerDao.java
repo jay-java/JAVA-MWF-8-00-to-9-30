@@ -115,4 +115,18 @@ public class SellerDao {
 		}
 	}
 
+	public static void updatePassword(String email, String np) {
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "update seller set password=? where email=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, np);
+			pst.setString(2, email);
+			pst.executeUpdate();
+			System.out.println("pass updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

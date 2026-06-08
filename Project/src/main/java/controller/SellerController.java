@@ -123,6 +123,9 @@ public class SellerController extends HttpServlet {
 				Random r = new Random();
 				int otp = r.nextInt(999999);
 				System.out.println(otp);
+				request.setAttribute("otp", otp);
+				request.setAttribute("email", email);
+				request.getRequestDispatcher("seller-verify-otp.jsp").forward(request, response);
 				try {
 					EmailServices.sendOTP(email, otp);
 				} catch (MessagingException e) {
@@ -131,6 +134,33 @@ public class SellerController extends HttpServlet {
 			} else {
 				request.setAttribute("msg", "Account not found!");
 				request.getRequestDispatcher("seller-forgot-password.jsp").forward(request, response);
+			}
+		} else if (action.equalsIgnoreCase("verifyotp")) {
+			int otp1 = Integer.parseInt(request.getParameter("otp1"));
+			int otp2 = Integer.parseInt(request.getParameter("otp2"));
+			String email = request.getParameter("email");
+			if (otp1 == otp2) {
+				request.setAttribute("email", email);
+				request.getRequestDispatcher("seller-update-password.jsp").forward(request, response);
+			} else {
+				request.setAttribute("otp", otp1);
+				request.setAttribute("email", email);
+				request.setAttribute("msg", "OTP not matched !");
+				request.getRequestDispatcher("seller-verify-otp.jsp").forward(request, response);
+			}
+		}
+
+		else if (action.equalsIgnoreCase("up")) {
+			String np = request.getParameter("np");
+			String cnp = request.getParameter("cnp");
+			String email = request.getParameter("email");
+			if (np.equals(cnp)) {
+				SellerDao.updatePassword(email, np);
+				response.sendRedirect("seller-login.jsp");
+			} else {
+				request.setAttribute("email", email);
+				request.setAttribute("msg", "Password not matched !");
+				request.getRequestDispatcher("seller-update-password.jsp").forward(request, response);
 			}
 		}
 
