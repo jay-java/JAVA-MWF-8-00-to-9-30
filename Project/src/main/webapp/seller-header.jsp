@@ -57,7 +57,8 @@
 					<div class="dropdown">
 						<button class="dropbtn">Products</button>
 						<div class="dropdown-content">
-							<a href="#">Upload</a> <a href="#">Manage</a>
+							<a href="seller-upload-product.jsp">Upload</a> 
+							<a href="seller-manage-product.jsp">Manage</a>
 						</div>
 					</div>
 				</ul>

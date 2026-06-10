@@ -121,7 +121,7 @@ public class SellerController extends HttpServlet {
 			boolean flag = SellerDao.checkEmail(email);
 			if (flag == true) {
 				Random r = new Random();
-				int otp = r.nextInt(999999);
+				int otp = r.nextInt(100000, 999999);
 				System.out.println(otp);
 				request.setAttribute("otp", otp);
 				request.setAttribute("email", email);
