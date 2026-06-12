@@ -3,18 +3,18 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import dao.ProdcutDao;
 import models.Product;
 
-/**
- * Servlet implementation class ProductController
- */
 @WebServlet("/product")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +38,7 @@ public class ProductController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("post called");
 		String action = request.getParameter("action");
 		System.out.println(action);
 		if (action != null && action.equalsIgnoreCase("upload")) {
@@ -64,6 +65,8 @@ public class ProductController extends HttpServlet {
 			p.setPcategory(request.getParameter("pcategory"));
 			p.setSid(Integer.parseInt(request.getParameter("sid")));
 			System.out.println(p);
+			ProdcutDao.insertProduct(p);
+			response.sendRedirect("seller-home.jsp");
 		} else {
 			response.sendRedirect("error.jsp");
 		}

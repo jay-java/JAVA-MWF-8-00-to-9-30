@@ -21,8 +21,8 @@
 							<input type="hidden" name="sid" value="<%=s.getId()%>"
 								class="form-control" id="email">
 							<div class="form-group">
-								<label class="text-black" for="email">Product Image</label> 
-								<input type="file" name="image" class="form-control" id="email">
+								<label class="text-black" for="email">Product Image</label> <input
+									type="file" name="image" class="form-control" id="email">
 							</div>
 							<div class="form-group">
 								<label class="text-black" for="email">Product Name</label> <input
