@@ -16,19 +16,30 @@
 
 
 					<div class="col-md-8 col-lg-8 pb-4">
-
-						<form action="" method="post">
+						<%
+						String msg = (String) request.getAttribute("msg");
+						if (msg != null) {
+						%>
+						<h2 class="mb-4 section-title">
+							<%
+							out.print(msg);
+							%>
+						</h2>
+						<%
+						}
+						%>
+						<form action="customer" method="post">
 							<div class="form-group">
 								<label class="text-black" for="email">Email</label> <input
-									type="email" class="form-control" id="email">
+									type="email" name="email" class="form-control" id="email">
 							</div>
 							<div class="form-group">
 								<label class="text-black" for="email">Password</label> <input
-									type="email" class="form-control" id="email">
+									type="password" name="password" class="form-control" id="email">
 							</div>
 							<br>
 							<button type="submit" name="action" value="login"
-								class="btn btn-primary-hover-outline">Customer Login</button>
+								class="btn btn-primary-hover-outline">Login</button>
 						</form>
 
 					</div>

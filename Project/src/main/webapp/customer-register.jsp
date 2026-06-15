@@ -17,30 +17,31 @@
 
 					<div class="col-md-8 col-lg-8 pb-4">
 
-						<form action="seller" method="post">
+						<form action="customer" method="post">
 							<div class="form-group">
 								<label class="text-black" for="email">Name</label> <input
-									type="email" class="form-control" id="email">
+									type="text" name="name" class="form-control" id="email">
 							</div>
 							<div class="form-group">
 								<label class="text-black" for="email">Contact</label> <input
-									type="email" class="form-control" id="email">
+									type="text" name="contact" class="form-control" id="email">
 							</div>
 							<div class="form-group">
 								<label class="text-black" for="email">Address</label> <input
-									type="email" class="form-control" id="email">
+									type="text" name="address" class="form-control" id="email">
 							</div>
 							<div class="form-group">
 								<label class="text-black" for="email">Email</label> <input
-									type="email" class="form-control" id="email">
+									type="email" name="email" class="form-control" id="email">
 							</div>
+
 							<div class="form-group">
 								<label class="text-black" for="email">Password</label> <input
-									type="email" class="form-control" id="email">
+									type="password" name="password" class="form-control" id="email">
 							</div>
 							<br>
 							<button type="submit" name="action" value="register"
-								class="btn btn-primary-hover-outline">Customer Register</button>
+								class="btn btn-primary-hover-outline">Register</button>
 						</form>
 
 					</div>

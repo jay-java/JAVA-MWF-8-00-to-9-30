@@ -67,8 +67,34 @@ public class ProductController extends HttpServlet {
 			System.out.println(p);
 			ProdcutDao.insertProduct(p);
 			response.sendRedirect("seller-home.jsp");
-		} else {
-			response.sendRedirect("error.jsp");
+		}
+
+		if (action.equalsIgnoreCase("update")) {
+			Product p = new Product();
+			String savePath = "C:\\Users\\Admin\\JAVA MWF 8-00\\Project\\src\\main\\webapp\\pimages";
+			File fileSaveDir = new File(savePath);
+			if (!fileSaveDir.exists()) {
+				fileSaveDir.mkdir();
+			}
+			Part file1 = request.getPart("image");
+			String fileName = extractfilename(file1);
+			file1.write(savePath + File.separator + fileName);
+			String filePath = savePath + File.separator + fileName;
+
+			String savePath2 = "C:\\Users\\Admin\\JAVA MWF 8-00\\Project\\src\\main\\webapp\\pimages";
+			File imgSaveDir = new File(savePath2);
+			if (!imgSaveDir.exists()) {
+				imgSaveDir.mkdir();
+			}
+
+			p.setPid(Integer.parseInt(request.getParameter("pid")));
+			p.setPimage(fileName);
+			p.setPname(request.getParameter("pname"));
+			p.setPprice(Integer.parseInt(request.getParameter("pprice")));
+			p.setPcategory(request.getParameter("pcategory"));
+
+			ProdcutDao.updateProduct(p);
+			response.sendRedirect("seller-manage-product.jsp");
 		}
 	}
 

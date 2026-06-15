@@ -28,6 +28,29 @@ public class ProdcutDao {
 		}
 	}
 
+	public static List<Product> getaLLProducts() {
+		List<Product> list = new ArrayList<Product>();
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "select * from product";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				Product p = new Product();
+				p.setPid(rs.getInt("pid"));
+				p.setPname(rs.getString("pname"));
+				p.setPimage(rs.getString("pimage"));
+				p.setPprice(rs.getInt("pprice"));
+				p.setPcategory(rs.getString("pcategory"));
+				p.setSid(rs.getInt("sid"));
+				list.add(p);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	public static List<Product> getProductsBySid(int sid) {
 		List<Product> list = new ArrayList<Product>();
 		try {
@@ -50,5 +73,58 @@ public class ProdcutDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public static Product getProductPid(int pid) {
+		Product p = null;
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "select * from product where pid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, pid);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				p = new Product();
+				p.setPid(rs.getInt("pid"));
+				p.setPname(rs.getString("pname"));
+				p.setPimage(rs.getString("pimage"));
+				p.setPprice(rs.getInt("pprice"));
+				p.setPcategory(rs.getString("pcategory"));
+				p.setSid(rs.getInt("sid"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+
+	public static void updateProduct(Product p) {
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "update product set pname=?,pimage=?,pprice=?,pcategory=? where pid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, p.getPname());
+			pst.setString(2, p.getPimage());
+			pst.setInt(3, p.getPprice());
+			pst.setString(4, p.getPcategory());
+			pst.setInt(5, p.getPid());
+			pst.executeUpdate();
+			System.out.println("product updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void deleteProduct(int pid) {
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "delete from product where pid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, pid);
+			pst.executeUpdate();
+			System.out.println("product deleted");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

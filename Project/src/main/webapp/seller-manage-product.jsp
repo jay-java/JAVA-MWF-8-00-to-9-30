@@ -43,8 +43,11 @@
 									<td>Rs. <%=p.getPprice()%></td>
 									<td><%=p.getPcategory()%></td>
 
-									<td>Edit</td>
-									<td><a href="#" class="btn btn-black btn-sm">Remove</a></td>
+									<td><a
+										href="seller-single-product.jsp?pid=<%=p.getPid()%>"
+										class="btn btn-black btn-sm">Edit</a></td>
+									<td><a href="seller-remove-product.jsp?pid=<%=p.getPid()%>"
+										class="btn btn-black btn-sm">Remove</a></td>
 								</tr>
 								<%
 								}
