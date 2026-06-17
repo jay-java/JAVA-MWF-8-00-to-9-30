@@ -1,6 +1,6 @@
-<%@page import="dao.ProdcutDao"%>
 <%@page import="models.Product"%>
 <%@page import="java.util.List"%>
+<%@page import="dao.ProdcutDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="customer-header.jsp"%>
@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<%
-				List<Product> list = ProdcutDao.getaLLProducts();
+				List<Product> list = ProdcutDao.getProductsByCategory("Chair");
 				%>
 				<%
 				for (Product p : list) {
@@ -26,9 +26,10 @@
 						src="pimages/<%=p.getPimage()%>"
 						class="img-fluid product-thumbnail">
 						<h3 class="product-title"><%=p.getPname()%></h3> <strong
-						class="product-price">Rs. <%=p.getPprice()%></strong> <a
-						href="cartcontroller?action=addtocart&pid=<%=p.getPid()%>&cusid=<%=c.getId()%>">Add
-							To cart</a>
+						class="product-price">Rs. <%=p.getPprice()%></strong> <span
+						class="icon-cross"> <img src="images/cross.svg"
+							class="img-fluid">
+					</span>
 					</a>
 				</div>
 				<!-- End Column 1 -->
@@ -39,6 +40,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

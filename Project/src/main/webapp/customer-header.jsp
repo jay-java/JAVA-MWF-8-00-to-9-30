@@ -1,3 +1,6 @@
+<%@page import="dao.CartDao"%>
+<%@page import="models.Cart"%>
+<%@page import="java.util.List"%>
 <%@page import="models.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -53,12 +56,12 @@
 			<div class="collapse navbar-collapse" id="navbarsFurni">
 				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 					<li class="nav-item active"><a class="nav-link"
-						href="seller-home.jsp">Home</a></li>
+						href="customer-home.jsp">Home</a></li>
 					<div class="dropdown">
 						<button class="dropbtn">Products</button>
 						<div class="dropdown-content">
-							<a href="seller-upload-product.jsp">Upload</a> <a
-								href="seller-manage-product.jsp">Manage</a>
+							<a href="chair.jsp">Chair</a> <a href="sofa.jsp">Sofa</a> <a
+								href="table.jsp">Table</a>
 						</div>
 					</div>
 				</ul>
@@ -76,7 +79,10 @@
 				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 					<li><a class="nav-link" href="#"><img
 							src="images/user.svg"></a></li>
-					<li><a class="nav-link" href="cart.html"><img
+					<%
+					List<Cart> cartList = CartDao.getCartByCusID(c.getId());
+					%>
+					<li><a class="nav-link" href="cart.jsp"><%=cartList.size()%><img
 							src="images/cart.svg"></a></li>
 				</ul>
 			</div>

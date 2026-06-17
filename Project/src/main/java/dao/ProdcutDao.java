@@ -75,6 +75,30 @@ public class ProdcutDao {
 		return list;
 	}
 
+	public static List<Product> getProductsByCategory(String category) {
+		List<Product> list = new ArrayList<Product>();
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String sql = "select * from product where pcategory=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, category);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				Product p = new Product();
+				p.setPid(rs.getInt("pid"));
+				p.setPname(rs.getString("pname"));
+				p.setPimage(rs.getString("pimage"));
+				p.setPprice(rs.getInt("pprice"));
+				p.setPcategory(rs.getString("pcategory"));
+				p.setSid(rs.getInt("sid"));
+				list.add(p);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	public static Product getProductPid(int pid) {
 		Product p = null;
 		try {
