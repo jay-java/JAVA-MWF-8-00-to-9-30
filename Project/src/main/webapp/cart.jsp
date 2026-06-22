@@ -31,7 +31,11 @@
 							</thead>
 							<tbody>
 								<%
+								int subtotal = 0;
+								%>
+								<%
 								for (Cart c1 : list) {
+									subtotal = subtotal + c1.getTotal_price();
 									Product p = ProdcutDao.getProductPid(c1.getPid());
 								%>
 								<tr>
@@ -45,22 +49,19 @@
 										<div
 											class="input-group mb-3 d-flex align-items-center quantity-container"
 											style="max-width: 120px;">
-											<div class="input-group-prepend">
-												<button class="btn btn-outline-black decrease" type="button">&minus;</button>
-											</div>
-											<input type="text"
-												class="form-control text-center quantity-amount" value="1"
-												placeholder="" aria-label="Example text with button addon"
-												aria-describedby="button-addon1">
-											<div class="input-group-append">
-												<button class="btn btn-outline-black increase" type="button">&plus;</button>
-											</div>
+
+											<form action="cartcontroller" method="get">
+												<input type="hidden" name="cart_id"
+													value="<%=c1.getCart_id()%>"> <input type="number"
+													name="qty" value="<%=c1.getQty()%>"
+													onchange="this.form.submit();">
+											</form>
+
 										</div>
 
 									</td>
-									<td>$49.00</td>
-									<td><a
-										href="remove-cart.jsp?cart_id=<%=c1.getCart_id()%>"
+									<td><%=c1.getTotal_price()%></td>
+									<td><a href="remove-cart.jsp?cart_id=<%=c1.getCart_id()%>"
 										class="btn btn-black btn-sm">X</a></td>
 								</tr>
 								<%
@@ -111,7 +112,16 @@
 									<span class="text-black">Subtotal</span>
 								</div>
 								<div class="col-md-6 text-right">
-									<strong class="text-black">$230.00</strong>
+									<strong class="text-black">Rs. <%=subtotal%></strong>
+								</div>
+							</div>
+							<div class="row mb-5">
+								<div class="col-md-6">
+									<span class="text-black">GST 5%</span>
+								</div>
+								<div class="col-md-6 text-right">
+									<%int gst =subtotal * 0.05 %>
+									<strong class="text-black">Rs. <%=%></strong>
 								</div>
 							</div>
 							<div class="row mb-5">
@@ -119,7 +129,7 @@
 									<span class="text-black">Total</span>
 								</div>
 								<div class="col-md-6 text-right">
-									<strong class="text-black">$230.00</strong>
+									<strong class="text-black">Rs. <%=subtotal%></strong>
 								</div>
 							</div>
 

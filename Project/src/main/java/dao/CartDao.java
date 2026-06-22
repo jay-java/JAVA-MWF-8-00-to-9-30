@@ -13,10 +13,14 @@ public class CartDao {
 	public static void addToCart(Cart c) {
 		try {
 			Connection conn = DatabaseConnection.createConnection();
-			String url = "insert into cart (pid,cus_id) values(?,?)";
+			String url = "insert into cart (pid,cus_id,pprice,total_price,qty,payment_status) values(?,?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(url);
 			pst.setInt(1, c.getPid());
 			pst.setInt(2, c.getCus_id());
+			pst.setInt(3, c.getPprice());
+			pst.setInt(4, c.getTotal_price());
+			pst.setInt(5, c.getQty());
+			pst.setString(6, c.getPayment_status());
 			pst.executeUpdate();
 			System.out.println("added to cart");
 		} catch (Exception e) {
@@ -37,12 +41,55 @@ public class CartDao {
 				c.setCart_id(rs.getInt("cart_id"));
 				c.setPid(rs.getInt("pid"));
 				c.setCus_id(rs.getInt("cus_id"));
+				c.setPprice(rs.getInt("pprice"));
+				c.setTotal_price(rs.getInt("total_price"));
+				c.setQty(rs.getInt("qty"));
+				c.setPayment_status(rs.getString("payment_status"));
 				list.add(c);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public static Cart getCartByCartId(int id) {
+		Cart c = null;
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String url = "select * from cart where cart_id=?";
+			PreparedStatement pst = conn.prepareStatement(url);
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				c = new Cart();
+				c.setCart_id(rs.getInt("cart_id"));
+				c.setPid(rs.getInt("pid"));
+				c.setCus_id(rs.getInt("cus_id"));
+				c.setPprice(rs.getInt("pprice"));
+				c.setTotal_price(rs.getInt("total_price"));
+				c.setQty(rs.getInt("qty"));
+				c.setPayment_status(rs.getString("payment_status"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+
+	public static void updateCart(Cart c) {
+		try {
+			Connection conn = DatabaseConnection.createConnection();
+			String url = "update cart set total_price=?,qty=? where cart_id=?";
+			PreparedStatement pst = conn.prepareStatement(url);
+			pst.setInt(1, c.getTotal_price());
+			pst.setInt(2, c.getQty());
+			pst.setInt(3, c.getCart_id());
+			pst.executeUpdate();
+			System.out.println("cart update");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void removeFromCart(int cart_id) {
