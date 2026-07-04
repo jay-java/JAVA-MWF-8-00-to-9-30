@@ -120,8 +120,7 @@
 									<span class="text-black">GST 5%</span>
 								</div>
 								<div class="col-md-6 text-right">
-									<%int gst =subtotal * 0.05 %>
-									<strong class="text-black">Rs. <%=%></strong>
+									<strong class="text-black">Rs. </strong>
 								</div>
 							</div>
 							<div class="row mb-5">

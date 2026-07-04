@@ -24,6 +24,24 @@
 <link href="css/tiny-slider.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <title>Insert title here</title>
+<script type="text/javascript">
+	var request = new XMLHttpRequest();
+	function searchItem() {
+		var name = document.vinform.pname.value;
+		var url = "AjaxSearch.jsp?val=" + name;
+		try {
+			request.onreadystatechange = function() {
+				if (request.readyState == 4) {
+					var val = request.responseText;
+					document.getElementById('result').innerHTML = val;
+				}
+			}
+			request.open("GET", url, true);
+			request.send();
+		} catch (e) {
+		}
+	}
+</script>
 </head>
 <body>
 	<%
@@ -74,6 +92,15 @@
 						<a href="seller-profile.jsp">Profile</a> <a
 							href="seller-change-password.jsp">Change Password</a> <a
 							href="seller-logout.jsp">Logout</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<form name="vinform">
+						<input type="text" name="pname" onkeyup="searchItem()"
+							placeholder="search product">
+					</form>
+					<div class="dropdown-content">
+						<a style="color: black;" id="result" href="product.jsp"></a>
 					</div>
 				</div>
 				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
