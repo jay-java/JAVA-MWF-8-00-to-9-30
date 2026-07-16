@@ -13,5 +13,9 @@
 		<mapping class="com.hibernate.User" />
 		<mapping class="OneToOne.Student" />
 		<mapping class="OneToOne.Course" />
+		<mapping class="OneToMany.Student1" />
+		<mapping class="OneToMany.Course1" />
+		<mapping class="ManyToMany.Student2" />
+		<mapping class="ManyToMany.Course2" />
 	</session-factory>
 </hibernate-configuration>
