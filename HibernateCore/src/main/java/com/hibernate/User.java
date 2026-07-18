@@ -2,14 +2,17 @@ package com.hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_data")
+//@Table(name = "user_data")
 public class User {
 	@Id // primary key
 	@Column(name = "user_id")
+	@GeneratedValue(strategy = GenerationType.AUTO) //auto-increment
 	private int id;
 	@Column(name = "user_name")
 	private String name;
@@ -23,6 +26,16 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
+	public User(String name, long contact, String address, String email, String password) {
+		super();
+		this.name = name;
+		this.contact = contact;
+		this.address = address;
+		this.email = email;
+		this.password = password;
+	}
+
+	
 	public User(int id, String name, long contact, String address, String email, String password) {
 		super();
 		this.id = id;
