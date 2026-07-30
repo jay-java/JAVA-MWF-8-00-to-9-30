@@ -1,5 +1,5 @@
 <%@page import="models.Product"%>
-<%@page import="dao.ProdcutDao"%>
+<%@page import="com.dao.ProdcutDao"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

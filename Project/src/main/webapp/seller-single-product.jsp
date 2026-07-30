@@ -1,4 +1,4 @@
-<%@page import="dao.ProdcutDao"%>
+<%@page import="com.dao.ProdcutDao"%>
 <%@page import="models.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

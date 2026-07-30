@@ -9,7 +9,17 @@ public class App {
 
 		ApplicationContext con = new ClassPathXmlApplicationContext("com/orm/springorm.xml");
 		UserDAO dao = (UserDAO) con.getBean("dao");
-		User u1 = new User(1, "java", 987654321, "xyz");
-		dao.createUser(u1);
+//		User u1 = new User(3, "dart", 9876543210l, "delhi");
+//		dao.createUser(u1);
+
+		// to fetch data from db
+//		User u1= dao.getUserById(1);
+//		System.out.println(u1);
+
+//		User u1 = new User(3, "flutter", 9876543210l, "delhi");
+//		dao.updateUser(u1);
+
+//		dao.deleteUser(1);
+
 	}
 }

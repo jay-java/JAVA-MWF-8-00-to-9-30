@@ -1,6 +1,6 @@
 <%@page import="models.Product"%>
 <%@page import="java.util.List"%>
-<%@page import="dao.ProdcutDao"%>
+<%@page import="com.dao.ProdcutDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="customer-header.jsp"%>

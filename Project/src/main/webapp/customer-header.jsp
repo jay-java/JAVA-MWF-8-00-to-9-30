@@ -1,4 +1,4 @@
-<%@page import="dao.CartDao"%>
+<%@page import="com.dao.CartDao"%>
 <%@page import="models.Cart"%>
 <%@page import="java.util.List"%>
 <%@page import="models.Customer"%>

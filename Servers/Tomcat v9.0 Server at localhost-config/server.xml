@@ -162,7 +162,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="CookiesEx" path="/CookiesEx" reloadable="true" source="org.eclipse.jst.jee.server:CookiesEx"/><Context docBase="ServletContextConfig" path="/ServletContextConfig" reloadable="true" source="org.eclipse.jst.jee.server:ServletContextConfig"/><Context docBase="Project" path="/Project" reloadable="true" source="org.eclipse.jst.jee.server:Project"/></Host>
+      <Context docBase="CookiesEx" path="/CookiesEx" reloadable="true" source="org.eclipse.jst.jee.server:CookiesEx"/><Context docBase="ServletContextConfig" path="/ServletContextConfig" reloadable="true" source="org.eclipse.jst.jee.server:ServletContextConfig"/><Context docBase="Project" path="/Project" reloadable="true" source="org.eclipse.jst.jee.server:Project"/><Context docBase="SpringMVC" path="/SpringMVC" reloadable="true" source="org.eclipse.jst.j2ee.server:SpringMVC"/></Host>
     </Engine>
   </Service>
 </Server>
